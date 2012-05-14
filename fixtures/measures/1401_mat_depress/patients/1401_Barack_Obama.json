@@ -1,0 +1,16 @@
+{
+  "first": "Barack",
+  "last": "Obama",
+  "gender": "M",
+  "birthdate": 1302825600,
+  "measures": {
+    "1401": {
+      "encounter_outpatient_consulatation_encounter_performed": [
+        1312156800
+      ],
+      "encounter_depression_treatment_intervention_performed": [
+        1317441600
+      ]
+    }
+  }
+}

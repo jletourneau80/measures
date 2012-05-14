@@ -4,7 +4,7 @@
 //
 // lib/qme/mongo_helpers.rb executes this function on a database
 // connection.
-function () {
+misc_utils = function () {
   var root = this;
   
   var between = function(value, start, end) {
@@ -86,3 +86,4 @@ function () {
   };
 
 }
+misc_utils();

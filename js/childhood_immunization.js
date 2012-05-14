@@ -5,7 +5,7 @@
 //
 // lib/qme/mongo_helpers.rb executes this function on a database
 // connection.
-function () {
+(function () {
   var day = 24 * 60 * 60;
   var year = 365 * day;
   var root = this;
@@ -235,4 +235,4 @@ function () {
     return (inRange(many_exclusions, birthdate, effective_date));
   };
 
-}
+})

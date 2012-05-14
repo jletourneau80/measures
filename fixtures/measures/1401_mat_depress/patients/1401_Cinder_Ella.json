@@ -1,0 +1,17 @@
+{
+  "first": "Cinder",
+  "last": "Ella",
+  "gender": "F",
+  "birthdate": 1296604800,
+  "measures": {
+    "1401": {
+      "encounter_face_to_face_interaction_encounter_performed": [
+        1300579200,
+        1322697600
+      ],
+      "encounter_pp_depression_screening_risk_category_assessment": [
+        1322715600
+      ]
+    }
+  }
+}

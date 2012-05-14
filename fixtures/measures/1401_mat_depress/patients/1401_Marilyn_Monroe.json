@@ -1,0 +1,13 @@
+{
+  "first": "Marilyn",
+  "last": "Monroe",
+  "gender": "F",
+  "birthdate": 1291507200,
+  "measures": {
+    "1401": {
+      "encounter_face_to_face_interaction_encounter_performed": [
+        1306800000
+      ]
+    }
+  }
+}
