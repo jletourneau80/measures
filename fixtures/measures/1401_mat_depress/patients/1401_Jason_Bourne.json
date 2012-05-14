@@ -1,0 +1,13 @@
+{
+  "first": "Jason",
+  "last": "Bourne",
+  "gender": "M",
+  "birthdate": 1283299200,
+  "measures": {
+    "1401": {
+      "encounter_face_to_face_interaction_encounter_performed": [
+        1302825600
+      ]
+    }
+  }
+}

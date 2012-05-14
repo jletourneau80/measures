@@ -1,0 +1,13 @@
+{
+  "first": "Jessica",
+  "last": "Rabbit",
+  "gender": "F",
+  "birthdate": 1275350400,
+  "measures": {
+    "1401": {
+      "encounter_face_to_face_interaction_encounter_performed": [
+        1291248000
+      ]
+    }
+  }
+}

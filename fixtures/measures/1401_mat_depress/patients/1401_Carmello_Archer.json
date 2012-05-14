@@ -1,0 +1,16 @@
+{
+  "first": "Carmello",
+  "last": "Archer",
+  "gender": "M",
+  "birthdate": 1291161600,
+  "measures": {
+    "1401": {
+      "encounter_office_visit_encounter_performed": [
+        1305849600
+      ],
+      "encounter_pp_depression_screening_risk_category_assessment": [
+        1305864000
+      ]
+    }
+  }
+}

@@ -1,9 +1,9 @@
 source :gemcutter
 
-#gem 'quality-measure-engine', '1.1.1'
-gem 'quality-measure-engine', :git => 'http://github.com/pophealth/quality-measure-engine.git', :branch => 'master'
-#gem 'health-data-standards', '0.7.1'
-gem 'health-data-standards', :git => 'https://github.com/projectcypress/health-data-standards.git', :branch => 'master'
+#gem 'quality-measure-engine', '1.0.4'
+#gem 'quality-measure-engine', :path=>'../quality-measure-engine'
+gem 'quality-measure-engine', :path => '../quality-measure-engine'
+gem 'health-data-standards', :git => 'https://github.com/projectcypress/health-data-standards.git', :branch => 'develop'
 
 gem 'activemodel', '3.1.3'
 
