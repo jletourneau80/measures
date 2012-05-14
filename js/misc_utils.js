@@ -76,8 +76,8 @@ function () {
 
   //  unique_dates:  list of unique dates in a list of times
   root.unique_dates = function (times) {
-    if (!_.isArray(times)) { // a single date is unique
-      return times;
+    if (!_.isArray(times)) { // a single date is unique, but round it to nearest day
+      return parseInt((times / (24 * 60 * 60)).toFixed(0)) * (24 * 60 * 60);
     }
     var dates = _.map(times, function (time) {
       return parseInt((time / (24 * 60 * 60)).toFixed(0)) * (24 * 60 * 60);
