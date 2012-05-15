@@ -32,8 +32,8 @@ function() {
   }
 
   var numerator = function() {
-    var pp_depression_screen = inRange(measure.encounter_pp_depression_screening_risk_category_assessment,patient.birthdate, patient.birthdate + (.5 * year));
-    var pp_depression_treatment = inRange(measure.encounter_depression_treatment_intervention_performed,patient.birthdate, patient.birthdate + (.5 * year));
+    var pp_depression_screen = inRange(measure.risk_category_pp_depression_screening_risk_category_assessment,patient.birthdate, patient.birthdate + (.5 * year));
+    var pp_depression_treatment = inRange(measure.risk_category_depression_treatment_intervention_performed,patient.birthdate, patient.birthdate + (.5 * year));
     
     return pp_depression_screen || pp_depression_treatment;
   }
