@@ -11,6 +11,16 @@ misc_utils = function () {
     return (value>=start && value<=end);
   }
   
+  // Returns list of somethings that occurred within the time range
+  root.allSomethingsInRange = function(somethings, startTimeRange, endTimeRange){
+	return _.select(somethings, function(val) {return between(val, startTimeRange, endTimeRange);}); 
+  } 
+  // Returns sorted list of somethings that occurred within the time range
+	root.sortedSomethingsInRange = function(somethings, startTimeRange, endTimeRange){
+		list = allSomethingsInRange(somethings, startTimeRange, endTimeRange);
+		return _.sortBy(list, function(num) {  return num; });
+	}
+
   // Returns list of something that occured within 1 day of an encounter
   root.allSomethingsDuringEncounter = function (somethings, encounters, startTimeRange, endTimeRange) {
     var result = 0;
@@ -25,8 +35,8 @@ misc_utils = function () {
     somethings = normalize(somethings);
     encounters = normalize(encounters);
     
-    somethings_in_range = _.select(somethings, function(val) {return between(val, startTimeRange, endTimeRange);});
-    encounters_in_range = _.select(encounters, function(val) {return between(val, startTimeRange, endTimeRange);});
+    somethings_in_range = allSomethingsInRange(somethings,  startTimeRange, endTimeRange);
+    encounters_in_range = allSomethingsInRange(encounters,  startTimeRange, endTimeRange);
 
     matching = _.select(somethings_in_range, function(something) {
       window_start = something - day;
@@ -83,6 +93,12 @@ misc_utils = function () {
       return parseInt((time / (24 * 60 * 60)).toFixed(0)) * (24 * 60 * 60);
     });
     return (_.uniq(dates));
+  };
+
+ //  date_to_day:   Rounds times to the nearest day.   All times within a day will round to the start of the day.
+ //  Useful for comparing whether timestamps fell in the same calendar day.
+  root.date_to_day = function (date) {
+      return parseInt((date / (24 * 60 * 60)).toFixed(0)) ;
   };
 
 }

@@ -1,0 +1,20 @@
+{
+  "first": "Marilyn",
+  "last": "Monroe",
+  "gender": "F",
+  "birthdate": 653788800,
+  "measures": {
+    "0110": {
+      "condition_bh_conditions_involving_bipolar_disorder_diagnosis_active": [
+        1320120000
+      ],
+      "encounter_bh_outpatient_encounter_encounter_performed": [
+        1320105600
+      ],
+      "medication_bh_anti_depressant_medication_medication_ordered": [
+        1320465600,
+        1317787200
+      ]
+    }
+  }
+}

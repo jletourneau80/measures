@@ -1,0 +1,16 @@
+{
+  "first": "Barack",
+  "last": "Obama",
+  "gender": "M",
+  "birthdate": 653788800,  // Time.gm(1990,9,20).to_i
+  "measures": {
+    "0110": {
+      "encounter_outpatient_encounter_performed": [
+        1306886400    
+      ],
+      "bipolar_diagnosis_active": [
+        1306886400
+      ]
+    }
+  }
+}
