@@ -1,5 +1,5 @@
 {
-  "first": "Kevin",
+  "first": "Jacob",
   "last": "Bourne",
   "gender": "M",
   "birthdate": 653788800,
@@ -10,7 +10,9 @@
         1257048000
       ],
       "encounter_bh_emergency_department_visit_encounter_performed": [
-        1288569600,
+        1288569600
+      ],
+      "encounter_bh_inpatient_encounter_encounter_performed": [
         1257033600
       ]
     }
