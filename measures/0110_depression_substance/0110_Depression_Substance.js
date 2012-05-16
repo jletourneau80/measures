@@ -70,20 +70,27 @@ function() {
 			}
 
 				var numerator = function() {
-					var dates_of_assessments = unique_dates(measure.procedure_bh_assessment_for_alcohol_or_other_substance_use_procedure_performed);
-					var day_of_diagnosis = date_to_day(index_encounter); 
-					var day_of_first_treatment = date_to_day(index_earliest_treatment);
+					var day_of_diagnosis = date_to_ndays(index_encounter); 
+					var day_of_first_treatment = date_to_ndays(index_earliest_treatment);
 					var assessment_after_diagnosis_before_treatment = sortedSomethingsInRange(measure.procedure_bh_assessment_for_alcohol_or_other_substance_use_procedure_performed, index_encounter, index_earliest_treatment + 1*day);
 					if(assessment_after_diagnosis_before_treatment.length == 0){
 						return(0);
 					}
-					var day_of_assessment = date_to_day(assessment_after_diagnosis_before_treatment[0]);
+					var day_of_assessment = date_to_ndays(assessment_after_diagnosis_before_treatment[0]);
 					return(day_of_assessment >= day_of_diagnosis && day_of_assessment <= day_of_first_treatment);
 				}
 
 				var exclusion = function() {
 					return false;
 				}
+				// This function takes a Ruby Date (seconds since the epoch), and creates a JS date object.
+				// The output is roughly the number of days since the epoch.   The purpose is to distinguish events that occurred on the same date from those that occurred on different dates.
+				// This really should be in misc_utils
+				var date_to_ndays = function (date) {
+				  var jdate = new Date(date * 1000);
+				  return (jdate.getUTCFullYear()*365 + jdate.getUTCMonth()*31 + jdate.getUTCDate());
+			   };
+			  
 
 				map(patient, population, denominator, numerator, exclusion);
 			};

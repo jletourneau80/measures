@@ -100,6 +100,13 @@ misc_utils = function () {
   root.date_to_day = function (date) {
       return parseInt((date / (24 * 60 * 60)).toFixed(0)) ;
   };
+ //  date_to_day:   Rounds times to the nearest day.   All times within a day will round to the start of the day.
+ //  Useful for comparing whether timestamps fell in the same calendar day.
+
+  root.date_to_ndays = function (date) {
+	  var jdate = new Date(date * 1000);
+	  return (jdate.getFullYear()*365 + jdate.getMonth()*30 + jdate.getDate());
+  };
 
 }
 misc_utils();
