@@ -1,0 +1,11 @@
+{
+  "first": "Sam",          // personal data
+  "last": "Bloggs",
+  "gender": "M",
+  "patient_id" : "100324",
+  "birthdate": -795312000, // Time.gm(1944, 10, 19).to_i (must be 64 by measure period start)
+  "measures": {            // bag of measures, one entry per measure
+    "0032": {
+    }
+  }
+}

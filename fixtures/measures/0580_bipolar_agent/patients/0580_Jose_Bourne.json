@@ -5,8 +5,8 @@
   "birthdate": 653788800,
   "measures": {
     "0580": {
-      "condition_bh_bipolar_disorder_diagnosis_active_principal_": [
-        1288584000
+      "condition_bh_bipolar_disorder_diagnosis_active": [
+        {"date":1288584000,"priority":"principal"}
       ],
       "encounter_bh_emergency_department_visit_encounter_performed": [
         1288569600

@@ -6,8 +6,8 @@
   "measures": {
     "0580": {
       "condition_bh_bipolar_disorder_diagnosis_active": [
-        1288584000,
-        1320465600
+        {"date":1288584000},
+        {"date":1320465600}
       ],
       "encounter_bh_emergency_department_visit_": [
         1288569600

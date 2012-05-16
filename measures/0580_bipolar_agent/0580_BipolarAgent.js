@@ -27,9 +27,9 @@ function() {
     var emergency_encounters_inrange = selectWithinRange(measure.encounter_bh_emergency_department_visit_encounter_performed, earliest_encounter,measurement_period_start);
     var outpatient_encounters_inrange = selectWithinRange(measure.encounter_bh_outpatient_encounter_encounter_performed, earliest_encounter,measurement_period_start);
 
-    var bipolar_disorder_inrange = actionFollowingSomething(outpatient_encounters_inrange, measure.condition_bh_bipolar_disorder_diagnosis_active , day);
-    var principal_bipolar_inrange = actionFollowingSomething(inpatient_encounters_inrange,measure.condition_bh_bipolar_disorder_diagnosis_active_principal_, day);
-    var principal_bipolar_emergency_inrange = actionFollowingSomething(emergency_encounters_inrange, measure.condition_bh_bipolar_disorder_diagnosis_active_principal_,day);
+    var bipolar_disorder_inrange = actionFollowingSomething(outpatient_encounters_inrange, filterForPriority(measure.condition_bh_bipolar_disorder_diagnosis_active) , day);
+    var principal_bipolar_inrange = actionFollowingSomething(inpatient_encounters_inrange,filterForPriority(measure.condition_bh_bipolar_disorder_diagnosis_active,['principal']), day);
+    var principal_bipolar_emergency_inrange = actionFollowingSomething(emergency_encounters_inrange, filterForPriority(measure.condition_bh_bipolar_disorder_diagnosis_active,['principal']),day);
     
     var denominator = ((bipolar_disorder_inrange>=3) || (principal_bipolar_inrange>=1) || (principal_bipolar_emergency_inrange>=1));
 
@@ -37,9 +37,9 @@ function() {
     var emergency_encounters_outrange = selectWithinRange(measure.encounter_bh_emergency_department_visit_encounter_performed, exclusion_encounter, earliest_encounter);
     var outpatient_encounters_outrange = selectWithinRange(measure.encounter_bh_outpatient_encounter_encounter_performed, exclusion_encounter, earliest_encounter);
 
-    var bipolar_disorder_outrange = actionFollowingSomething(outpatient_encounters_outrange, measure.condition_bh_bipolar_disorder_diagnosis_active , day);
-    var principal_bipolar_outrange = actionFollowingSomething(inpatient_encounters_outrange,measure.condition_bh_bipolar_disorder_diagnosis_active_principal_, day);
-    var principal_bipolar_emergency_outrange = actionFollowingSomething(emergency_encounters_outrange, measure.condition_bh_bipolar_disorder_diagnosis_active_principal_,day);
+    var bipolar_disorder_outrange = actionFollowingSomething(outpatient_encounters_outrange, filterForPriority(measure.condition_bh_bipolar_disorder_diagnosis_active) , day);
+    var principal_bipolar_outrange = actionFollowingSomething(inpatient_encounters_outrange,filterForPriority(measure.condition_bh_bipolar_disorder_diagnosis_active,['principal']), day);
+    var principal_bipolar_emergency_outrange = actionFollowingSomething(emergency_encounters_outrange, filterForPriority(measure.condition_bh_bipolar_disorder_diagnosis_active,['principal']),day);
     
     var exclusion = ((principal_bipolar_outrange>=1) || (bipolar_disorder_outrange>=1) || (principal_bipolar_emergency_outrange>=1));
 
