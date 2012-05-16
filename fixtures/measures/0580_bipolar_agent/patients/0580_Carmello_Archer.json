@@ -1,0 +1,19 @@
+{
+  "first": "Carmello",
+  "last": "Archer",
+  "gender": "M",
+  "birthdate": 653788800,
+  "measures": {
+    "0580": {
+      "condition_bh_bipolar_disorder_diagnosis_active": [
+        1288584000
+      ],
+      "encounter_bh_emergency_department_visit_encounter_performed": [
+        1288569600
+      ],
+      "medication_bh_mood_stabilizer_agent_medication_ordered": [
+        1320465600
+      ]
+    }
+  }
+}
