@@ -48,7 +48,7 @@ function() {
   }
 
   var numerator = function() {
-   var stabilizer = inRange(measure.medication_bh_mood_stabilizer_agent_medication_ordered,measurement_period_start,effective_date);
+   var stabilizer_ordered = inRange(measure.medication_bh_mood_stabilizer_agent_medication_ordered,measurement_period_start,effective_date);
     var outpatient_encounters_inrange = selectWithinRange(measure.encounter_bh_outpatient_encounter_encounter_performed, measurement_period_start,effective_date);
     var stabilizer_active = actionFollowingSomething(outpatient_encounters_inrange, measure.medication_bh_mood_stabilizer_agent_medication_active , day); 
     return stabilizer_ordered>=1 || stabilizer_active>=1;
