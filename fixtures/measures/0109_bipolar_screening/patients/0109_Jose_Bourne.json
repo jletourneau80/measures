@@ -1,0 +1,19 @@
+{
+  "first": "Jose",
+  "last": "Bourne",
+  "gender": "M",
+  "birthdate": 653803200,
+  "measures": {
+    "0109": {
+      "condition_bh_conditions_involving_unipolar_depression_diagnosis_active": [
+        1320105600
+      ],
+      "encounter_bh_outpatient_encounter_encounter_performed": [
+        1320105600
+      ],
+      "procedure_bh_psychotherapy_procedure_ordered": [
+        1320451200
+      ]
+    }
+  }
+}
