@@ -1,0 +1,16 @@
+{
+  "first": "Babe",
+  "last": "Ruth",
+  "gender": "M",
+  "birthdate": 741499200,
+  "measures": {
+    "1507": {
+      "encounter_office_visit_encounter_performed": [
+        1262304000
+      ],
+      "intervention_counseling_for_tobacco_abuse_intervention_performed": [
+        1309564800
+      ]
+    }
+  }
+}

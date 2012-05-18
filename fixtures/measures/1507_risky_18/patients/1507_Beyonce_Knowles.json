@@ -1,0 +1,13 @@
+{
+  "first": "Beyonce",
+  "last": "Knowles",
+  "gender": "F",
+  "birthdate": 760856400,
+  "measures": {
+    "1507": {
+      "encounter_face_to_face_interaction_encounter_performed": [
+        1267401600
+      ]
+    }
+  }
+}

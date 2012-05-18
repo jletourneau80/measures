@@ -1,0 +1,13 @@
+{
+  "first": "Britany",
+  "last": "Spears",
+  "gender": "M",
+  "birthdate": 899265600,
+  "measures": {
+    "1406": {
+      "encounter_office_visit_encounter_performed": [
+        1262304000
+      ]
+    }
+  }
+}

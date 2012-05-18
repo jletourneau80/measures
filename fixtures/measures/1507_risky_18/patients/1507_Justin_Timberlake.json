@@ -1,0 +1,16 @@
+{
+  "first": "Justin",
+  "last": "Timberlake",
+  "gender": "M",
+  "birthdate": 741499200,
+  "measures": {
+    "1507": {
+      "encounter_office_visit_encounter_performed": [
+        1262304000
+      ],
+      "intervention_counseling_for_sexual_activity_intervention_performed": [
+        1249084800
+      ]
+    }
+  }
+}

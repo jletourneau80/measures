@@ -1,0 +1,13 @@
+{
+  "first": "Jon",
+  "last": "Bon Jovi",
+  "gender": "M",
+  "birthdate": 754722000,
+  "measures": {
+    "1507": {
+      "encounter_face_to_face_interaction_encounter_performed": [
+        1262304000
+      ]
+    }
+  }
+}

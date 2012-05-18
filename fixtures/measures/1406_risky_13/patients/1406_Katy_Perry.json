@@ -1,0 +1,16 @@
+{
+  "first": "Katy",
+  "last": "Perry",
+  "gender": "F",
+  "birthdate": 899265600,
+  "measures": {
+    "1406": {
+      "encounter_office_visit_encounter_performed": [
+        1262304000
+      ],
+      "intervention_counseling_for_alcohol_abuse_intervention_performed": [
+        1246320000
+      ]
+    }
+  }
+}

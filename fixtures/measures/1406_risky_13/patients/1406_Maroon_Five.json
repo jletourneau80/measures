@@ -1,0 +1,13 @@
+{
+  "first": "Maroon",
+  "last": "Five",
+  "gender": "M",
+  "birthdate": 899265600,
+  "measures": {
+    "1406": {
+      "encounter_outpatient_consulation_encounter_performed": [
+        1262304000
+      ]
+    }
+  }
+}
