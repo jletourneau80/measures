@@ -1,0 +1,39 @@
+{
+  "first": "Johnny",
+  "last": "Doe454",
+  "gender": "M",
+  "birthdate": -463003200,
+  "measures": {
+    "1661": {
+      "communication_patient_refusal_of_alcohol_use_screening_communication_from_patient_to_provider": [
+        1296536400
+      ],
+      "encounter_intensive_care_unit_visit_encounter_performed": [
+        {
+          "date": 1296518400
+        },
+        {
+          "date": 1296518400,
+          "value": "admission datetime"
+        },
+        {
+          "date": 1296518400,
+          "value": "discharge datetime"
+        }
+      ],
+      "encounter_inpatient_encounter_encounter_performed": [
+        {
+          "date": 1296518400
+        },
+        {
+          "date": 1296518400,
+          "value": "admission datetime"
+        },
+        {
+          "date": 1296864000,
+          "value": "discharge datetime"
+        }
+      ]
+    }
+  }
+}

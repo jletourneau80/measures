@@ -1,0 +1,39 @@
+{
+  "first": "Johnny",
+  "last": "Doe502",
+  "gender": "M",
+  "birthdate": -463003200,
+  "measures": {
+    "1661": {
+      "encounter_emergency_department_visit_encounter_performed": [
+        {
+          "date": 1296518400
+        },
+        {
+          "date": 1296518400,
+          "value": "admission datetime"
+        },
+        {
+          "date": 1296518400,
+          "value": "discharge datetime"
+        }
+      ],
+      "risk_category_screening_tool_for_alcohol_use_validated_result_risk_category_assessment": [
+        1296518400
+      ],
+      "encounter_inpatient_encounter_encounter_performed": [
+        {
+          "date": 1296518400
+        },
+        {
+          "date": 1296518400,
+          "value": "admission datetime"
+        },
+        {
+          "date": 1296864000,
+          "value": "discharge datetime"
+        }
+      ]
+    }
+  }
+}

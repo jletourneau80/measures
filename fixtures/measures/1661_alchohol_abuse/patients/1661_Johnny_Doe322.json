@@ -1,0 +1,45 @@
+{
+  "first": "Johnny",
+  "last": "Doe322",
+  "gender": "M",
+  "birthdate": -463003200,
+  "measures": {
+    "1661": {
+      "encounter_emergency_department_visit_encounter_performed": [
+        {
+          "date": 1296518400
+        },
+        {
+          "date": 1296518400,
+          "value": "admission datetime"
+        },
+        {
+          "date": 1296518400,
+          "value": "discharge datetime"
+        }
+      ],
+      "procedure_assessment_for_alcohol_use_procedure_performed": [
+        {
+          "date": 1296518400
+        },
+        {
+          "date": 1296518400,
+          "value": "Unhealthy Alcohol Use"
+        }
+      ],
+      "encounter_inpatient_encounter_encounter_performed": [
+        {
+          "date": 1296518400
+        },
+        {
+          "date": 1296518400,
+          "value": "admission datetime"
+        },
+        {
+          "date": 1296864000,
+          "value": "discharge datetime"
+        }
+      ]
+    }
+  }
+}

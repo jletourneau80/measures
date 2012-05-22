@@ -1,0 +1,23 @@
+{
+  "first": "Johnny",
+  "last": "Doe631",
+  "gender": "M",
+  "birthdate": -463003200,
+  "measures": {
+    "1661": {
+      "encounter_inpatient_encounter_encounter_performed": [
+        {
+          "date": 1170288000
+        },
+        {
+          "date": 1170288000,
+          "value": "admission datetime"
+        },
+        {
+          "date": 1170633600,
+          "value": "discharge datetime"
+        }
+      ]
+    }
+  }
+}

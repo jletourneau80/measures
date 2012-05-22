@@ -1,0 +1,26 @@
+{
+  "first": "Johnny",
+  "last": "Doe271",
+  "gender": "M",
+  "birthdate": -463003200,
+  "measures": {
+    "1661": {
+      "communication_patient_refusal_of_brief_alcohol_use_intervention_communication_from_patient_to_provider": [
+        1296622800
+      ],
+      "encounter_inpatient_encounter_encounter_performed": [
+        {
+          "date": 1296518400
+        },
+        {
+          "date": 1296518400,
+          "value": "admission datetime"
+        },
+        {
+          "date": 1296864000,
+          "value": "discharge datetime"
+        }
+      ]
+    }
+  }
+}

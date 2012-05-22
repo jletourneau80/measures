@@ -1,0 +1,66 @@
+{
+  "first": "Johnny",
+  "last": "Doe60",
+  "gender": "M",
+  "birthdate": -463003200,
+  "measures": {
+    "1661": {
+      "communication_discussion_of_behavior_negative_consequences_and_severity_communication_from_provider_to_patient": [
+        1296604800
+      ],
+      "condition_acute_intoxication_diagnosis_active": [
+        1296604800
+      ],
+      "encounter_inpatient_encounter_encounter_performed": [
+        {
+          "date": 1296518400
+        },
+        {
+          "date": 1296518400,
+          "value": "admission datetime"
+        },
+        {
+          "date": 1296864000,
+          "value": "discharge datetime"
+        }
+      ],
+      "lab_test_blood_alcohol_test_laboratory_test_performed": [
+        {
+          "date": 1296518400
+        },
+        {
+          "date": 1296518400,
+          "value": "0.09"
+        }
+      ],
+      "procedure_assessment_for_alcohol_use_procedure_performed": [
+        {
+          "date": 1296604800
+        },
+        {
+          "date": 1296604800,
+          "value": "Unhealthy Alcohol Use"
+        }
+      ],
+      "communication_discussion_of_plan_of_care_communication_from_provider_to_patient": [
+        1293926400
+      ],
+      "communication_agreement_of_plan_of_care_communication_from_patient_to_provider": [
+        1296604800
+      ],
+      "procedure_brief_alcohol_use_intervention_procedure_performed": [
+        {
+          "date": 1296604800
+        },
+        {
+          "date": 1296604800,
+          "value": "start datetime"
+        },
+        {
+          "date": 1296604800,
+          "value": "stop datetime"
+        }
+      ]
+    }
+  }
+}

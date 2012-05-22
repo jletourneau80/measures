@@ -1,0 +1,35 @@
+{
+  "first": "Johnny",
+  "last": "Doe370",
+  "gender": "M",
+  "birthdate": -463003200,
+  "measures": {
+    "1661": {
+      "communication_patient_refusal_of_brief_alcohol_use_intervention_communication_from_patient_to_provider": [
+        1170392400
+      ],
+      "encounter_inpatient_encounter_encounter_performed": [
+        {
+          "date": 1170288000
+        },
+        {
+          "date": 1170288000,
+          "value": "admission datetime"
+        },
+        {
+          "date": 1170633600,
+          "value": "discharge datetime"
+        }
+      ],
+      "procedure_assessment_for_alcohol_use_procedure_performed": [
+        {
+          "date": 1170374400
+        },
+        {
+          "date": 1170374400,
+          "value": "Unhealthy Alcohol Use"
+        }
+      ]
+    }
+  }
+}
