@@ -6,7 +6,7 @@
   "measures": {
     "0580": {
       "condition_bh_bipolar_disorder_diagnosis_active_principal_": [
-        {"date":1288584000,"priority":"principal"}
+        {"date":1288584000,"priority":"principal"},
         {"date":1257048000,"priority":"principal"}
       ],
       "encounter_bh_emergency_department_visit_encounter_performed": [

@@ -3,7 +3,7 @@
 // that needs common definitions of these algorithms.
 // lib/qme/mongo_helpers.rb executes this function on a database
 // connection.
-(function() {
+function() {
 
   var root = this;
   var year = 365*24*60*60;
@@ -53,4 +53,4 @@
     return pregnant || not_done || terminal_illness;
   }
 
-})
+}

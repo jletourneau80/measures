@@ -4,7 +4,7 @@
 //
 // lib/qme/mongo_helpers.rb executes this function on a database
 // connection.
-(function() {
+function() {
 
   var root = this;
 
@@ -28,4 +28,4 @@
     return (ptca || cabg || ami || ivd);
   }
 
-})
+}
