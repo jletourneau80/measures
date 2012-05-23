@@ -33,57 +33,60 @@ function() {
   var denominator = function() {
    
     
-    var discharged_during_measurement_period = selectWithinRange(filterForSomething(measure.encounter_inpatient_encounter_encounter_performed, "value","discharge datetime"));
+    var discharged_during_measurement_period = selectWithinRange(filterForSomething(measure.encounter_inpatient_encounter_encounter_performed, "value","discharge datetime"),measurement_period_start,effective_date);
 
 
-    var discharged_before_2_days=actionFollowingSomething(filterForSomething(measure.encounter_inpatient_encounter_encounter_performed, "value","admission datetime"),
-                                                            discharged_during_measurement_period, 2*day);
+    var discharged_before_2_days=actionFollowingSomething(discharged_during_measurement_period,filterForSomething(measure.encounter_inpatient_encounter_encounter_performed, "value","admission datetime"), 2*day);
 
-    var cognitive_impairment_diagnosis = actionFollowingSomething(filterForSomething(measure.encounter_inpatient_encounter_encounter_performed), measure.condition_cognitive_impairment_diagnosis_diagnosis_active , day); 
+    var cognitive_impairment_diagnosis = actionFollowingSomething(filterForSomething(measure.encounter_inpatient_encounter_encounter_performed, "value","admission datetime"), measure.condition_cognitive_impairment_diagnosis_diagnosis_active , lengthOfStay(measure.encounter_inpatient_encounter_encounter_performed)); 
 
     var inpatient_encounter_before_18 = inRange(filterForSomething(measure.encounter_inpatient_encounter_encounter_performed,"value","admission datetime"), earliest_encounter, latest_encounter)
   
 
     var inpatient_1_hour_after_emergency = actionFollowingSomething(filterForSomething(measure.encounter_emergency_department_visit_encounter_performed, "value","discharge datetime"), filterForSomething(measure.encounter_inpatient_encounter_encounter_performed, "value","admission datetime") , 60 * 60); 
+    var cognitive_impairment_during_emergency = actionFollowingSomething(filterForSomething(measure.encounter_emergency_department_visit_encounter_performed, "value","admission datetime"), measure.condition_cognitive_impairment_diagnosis_diagnosis_active , lengthOfStay(measure.encounter_emergency_department_visit_encounter_performed)); 
+    var inpatient_cognitive_after_emergency = inpatient_1_hour_after_emergency && cognitive_impairment_during_emergency;
 
-    return !(discharged_before_2_days || cognitive_impairment_diagnosis || inpatient_encounter_before_18 || inpatient_1_hour_after_emergency)
+    return !(discharged_before_2_days || cognitive_impairment_diagnosis || inpatient_encounter_before_18 || inpatient_cognitive_after_emergency)
   }
 
   var numerator = function() {
-   var patient_refused_screening = actionFollowingSomething(measure.communication_patient_refusal_of_brief_alcohol_use_intervention_communication_from_patient_to_provider,filterForSomething(measure.encounter_inpatient_encounter_encounter_performed) , day) || 
-                                 actionFollowingSomething(filterForSomething(measure.procedure_assessment_for_alcohol_use_procedure_performed, "value","Patient Refusal for Brief Alcohol Use Intervention"),filterForSomething(measure.encounter_inpatient_encounter_encounter_performed) , day);
+
+var length_of_inpatient_stay = lengthOfStay(measure.encounter_inpatient_encounter_encounter_performed);
+   var patient_refused_screening = actionFollowingSomething(measure.communication_patient_refusal_of_brief_alcohol_use_intervention_communication_from_patient_to_provider,filterForSomething(measure.encounter_inpatient_encounter_encounter_performed) , lengthOfStay(measure.encounter_inpatient_encounter_encounter_performed)) || 
+                                 actionFollowingSomething(filterForSomething(measure.procedure_assessment_for_alcohol_use_procedure_performed, "value","Patient Refusal for Brief Alcohol Use Intervention"),filterForSomething(measure.encounter_inpatient_encounter_encounter_performed) , length_of_inpatient_stay);
    
-   var assessment_for_alchohol = actionFollowingSomething(filterForSomething(measure.procedure_assessment_for_alcohol_use_procedure_performed),filterForSomething(measure.encounter_inpatient_encounter_encounter_performed) , day);
-   var risk_category_assessment_for_alchohol_after_assessment = actionFollowingSomething(filterForSomething(measure.risk_category_screening_tool_for_alcohol_use_validated_result_risk_category_assessment),filterForSomething(measure.procedure_assessment_for_alcohol_use_procedure_performed) , day);
-   var risk_category_assessment_for_alchohol_during_inpatient = actionFollowingSomething(filterForSomething(measure.risk_category_screening_tool_for_alcohol_use_validated_result_risk_category_assessment),filterForSomething(measure.encounter_inpatient_encounter_encounter_performed) , day);
+   var assessment_for_alchohol = actionFollowingSomething(filterForSomething(measure.procedure_assessment_for_alcohol_use_procedure_performed),filterForSomething(measure.encounter_inpatient_encounter_encounter_performed) , lengthOfStay(measure.encounter_inpatient_encounter_encounter_performed));
+   var risk_category_assessment_for_alchohol_after_assessment = actionFollowingSomething(filterForSomething(measure.risk_category_screening_tool_for_alcohol_use_validated_result_risk_category_assessment),filterForSomething(measure.procedure_assessment_for_alcohol_use_procedure_performed) , length_of_inpatient_stay);
+   var risk_category_assessment_for_alchohol_during_inpatient = actionFollowingSomething(filterForSomething(measure.risk_category_screening_tool_for_alcohol_use_validated_result_risk_category_assessment),filterForSomething(measure.encounter_inpatient_encounter_encounter_performed) , length_of_inpatient_stay);
    
    var assessment = (assessment_for_alchohol && risk_category_assessment_for_alchohol_after_assessment && risk_category_assessment_for_alchohol_during_inpatient);
 
    
-   var blood_alcohol_test = actionFollowingSomething(filterForSomething(measure.lab_test_blood_alcohol_test_laboratory_test_performed),filterForSomething(measure.encounter_inpatient_encounter_encounter_performed) , day);
-   var acute_intoxication = actionFollowingSomething(measure.condition_acute_intoxication_diagnosis_active,filterForSomething(measure.lab_test_blood_alcohol_test_laboratory_test_performed) , day);
+   var blood_alcohol_test = actionFollowingSomething(filterForSomething(measure.encounter_inpatient_encounter_encounter_performed, "value","admission datetime"), filterForSomething(measure.lab_test_blood_alcohol_test_laboratory_test_performed), length_of_inpatient_stay);
+   var acute_intoxication = actionFollowingSomething(filterForSomething(measure.lab_test_blood_alcohol_test_laboratory_test_performed), measure.condition_acute_intoxication_diagnosis_active , length_of_inpatient_stay);
 
    var blood_alchol_test_and_derived_acute_intoxication = blood_alcohol_test && acute_intoxication;
 
 
    var inpatient_1_hour_after_emergency = actionFollowingSomething(filterForSomething(measure.encounter_emergency_department_visit_encounter_performed, "value","discharge datetime"), filterForSomething(measure.encounter_inpatient_encounter_encounter_performed, "value","admission datetime") , 60 * 60); 
-   var emergency_refused_screening_after_admission_comm = actionFollowingSomething(measure.communication_patient_refusal_of_brief_alcohol_use_intervention_communication_from_patient_to_provider,filterForSomething(measure.encounter_emergency_department_visit_encounter_performed,"value","admission datetime") , day);
-   var emergency_refused_screening_before_discharge_comm = actionFollowingSomething(filterForSomething(measure.encounter_inpatient_encounter_encounter_performed,"value","discharge datetime"),measure.communication_patient_refusal_of_brief_alcohol_use_intervention_communication_from_patient_to_provider , day);
+   var emergency_refused_screening_after_admission_comm = actionFollowingSomething(measure.communication_patient_refusal_of_brief_alcohol_use_intervention_communication_from_patient_to_provider,filterForSomething(measure.encounter_emergency_department_visit_encounter_performed,"value","admission datetime") , length_of_inpatient_stay);
+   var emergency_refused_screening_before_discharge_comm = actionFollowingSomething(filterForSomething(measure.encounter_inpatient_encounter_encounter_performed,"value","discharge datetime"),measure.communication_patient_refusal_of_brief_alcohol_use_intervention_communication_from_patient_to_provider , length_of_inpatient_stay);
    var emergency_refused_screening_comm = emergency_refused_screening_after_admission_comm && emergency_refused_screening_before_discharge_comm;
    
 
-   var emergency_refused_screening_after_admission = actionFollowingSomething(filterForSomething(measure.procedure_assessment_for_alcohol_use_procedure_performed, "value","Patient Refusal for Brief Alcohol Use Intervention"),filterForSomething(measure.encounter_emergency_department_visit_encounter_performed,"value","admission datetime") , day);
-   var emergency_refused_screening_before_discharge = actionFollowingSomething(filterForSomething(measure.encounter_inpatient_encounter_encounter_performed,"value","discharge datetime"),filterForSomething(measure.procedure_assessment_for_alcohol_use_procedure_performed, "value","Patient Refusal for Brief Alcohol Use Intervention") , day);
+   var emergency_refused_screening_after_admission = actionFollowingSomething(filterForSomething(measure.procedure_assessment_for_alcohol_use_procedure_performed, "value","Patient Refusal for Brief Alcohol Use Intervention"),filterForSomething(measure.encounter_emergency_department_visit_encounter_performed,"value","admission datetime") , length_of_inpatient_stay);
+   var emergency_refused_screening_before_discharge = actionFollowingSomething(filterForSomething(measure.encounter_inpatient_encounter_encounter_performed,"value","discharge datetime"),filterForSomething(measure.procedure_assessment_for_alcohol_use_procedure_performed, "value","Patient Refusal for Brief Alcohol Use Intervention") , length_of_inpatient_stay);
    var emergency_refused_screening = emergency_refused_screening_after_admission && emergency_refused_screening_before_discharge;
    
-   var emergency_assessment_after_admission = actionFollowingSomething(filterForSomething(measure.procedure_assessment_for_alcohol_use_procedure_performed),filterForSomething(measure.encounter_emergency_department_visit_encounter_performed,"value","admission datetime") , day);
-   var emergency_assessment_before_discharge = actionFollowingSomething(filterForSomething(measure.encounter_inpatient_encounter_encounter_performed,"value","discharge datetime"),filterForSomething(measure.procedure_assessment_for_alcohol_use_procedure_performed) , day);
-   var emergency_risk_category_assessment_after_admission = actionFollowingSomething(filterForSomething(measure.risk_category_screening_tool_for_alcohol_use_validated_result_risk_category_assessment),filterForSomething(measure.encounter_emergency_department_visit_encounter_performed,"value","admission datetime") , day);
-   var emergency_risk_category_assessment_before_discharge = actionFollowingSomething(filterForSomething(measure.encounter_inpatient_encounter_encounter_performed,"value","discharge datetime"),filterForSomething(measure.risk_category_screening_tool_for_alcohol_use_validated_result_risk_category_assessment) , day);
+   var emergency_assessment_after_admission = actionFollowingSomething(filterForSomething(measure.procedure_assessment_for_alcohol_use_procedure_performed),filterForSomething(measure.encounter_emergency_department_visit_encounter_performed,"value","admission datetime") , length_of_inpatient_stay);
+   var emergency_assessment_before_discharge = actionFollowingSomething(filterForSomething(measure.encounter_inpatient_encounter_encounter_performed,"value","discharge datetime"),filterForSomething(measure.procedure_assessment_for_alcohol_use_procedure_performed) , length_of_inpatient_stay);
+   var emergency_risk_category_assessment_after_admission = actionFollowingSomething(filterForSomething(measure.risk_category_screening_tool_for_alcohol_use_validated_result_risk_category_assessment),filterForSomething(measure.encounter_emergency_department_visit_encounter_performed,"value","admission datetime") , length_of_inpatient_stay);
+   var emergency_risk_category_assessment_before_discharge = actionFollowingSomething(filterForSomething(measure.encounter_inpatient_encounter_encounter_performed,"value","discharge datetime"),filterForSomething(measure.risk_category_screening_tool_for_alcohol_use_validated_result_risk_category_assessment) , length_of_inpatient_stay);
    var emergency_assessment = emergency_assessment_after_admission && emergency_assessment_before_discharge && emergency_risk_category_assessment_after_admission && emergency_risk_category_assessment_before_discharge;
 
-  var emergency_lab_test_after_admission = actionFollowingSomething(filterForSomething(measure.lab_test_blood_alcohol_test_laboratory_test_performed),filterForSomething(measure.encounter_emergency_department_visit_encounter_performed,"value","admission datetime") , day);
-   var emergency_lab_test_before_discharge = actionFollowingSomething(filterForSomething(measure.encounter_inpatient_encounter_encounter_performed,"value","discharge datetime"),filterForSomething(measure.lab_test_blood_alcohol_test_laboratory_test_performed) , day);
+  var emergency_lab_test_after_admission = actionFollowingSomething(filterForSomething(measure.lab_test_blood_alcohol_test_laboratory_test_performed),filterForSomething(measure.encounter_emergency_department_visit_encounter_performed,"value","admission datetime") , length_of_inpatient_stay);
+   var emergency_lab_test_before_discharge = actionFollowingSomething(filterForSomething(measure.encounter_inpatient_encounter_encounter_performed,"value","discharge datetime"),filterForSomething(measure.lab_test_blood_alcohol_test_laboratory_test_performed) , length_of_inpatient_stay);
   
    var emergency_lab_test = acute_intoxication && emergency_lab_test_after_admission && emergency_lab_test_before_discharge;
 

@@ -6,18 +6,18 @@
   "measures": {
     "1661": {
       "condition_acute_intoxication_diagnosis_active": [
-        1296604800
+        1296629999
       ],
       "encounter_inpatient_encounter_encounter_performed": [
         {
-          "date": 1296518400
+          "date": 1296551699
         },
         {
-          "date": 1296518400,
+          "date": 1296551699,
           "value": "admission datetime"
         },
         {
-          "date": 1296864000,
+          "date": 1296925200,
           "value": "discharge datetime"
         }
       ]

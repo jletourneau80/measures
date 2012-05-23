@@ -10,23 +10,23 @@
       ],
       "encounter_inpatient_encounter_encounter_performed": [
         {
-          "date": 1359676800
+          "date": 1359710099
         },
         {
-          "date": 1359676800,
+          "date": 1359710099,
           "value": "admission datetime"
         },
         {
-          "date": 1360022400,
+          "date": 1360083600,
           "value": "discharge datetime"
         }
       ],
       "procedure_assessment_for_alcohol_use_procedure_performed": [
         {
-          "date": 1359763200
+          "date": 1359795600
         },
         {
-          "date": 1359763200,
+          "date": 1359796499,
           "value": "Unhealthy Alcohol Use"
         }
       ]

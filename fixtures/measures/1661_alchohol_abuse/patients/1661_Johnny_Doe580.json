@@ -9,31 +9,31 @@
         1296622800
       ],
       "condition_cognitive_impairment_diagnosis_diagnosis_active": [
-        1296536400
+        1296544500
       ],
       "encounter_emergency_department_visit_encounter_performed": [
         {
-          "date": 1296518400
+          "date": 1296543599
         },
         {
-          "date": 1296518400,
+          "date": 1296543599,
           "value": "admission datetime"
         },
         {
-          "date": 1296518400,
+          "date": 1296549900,
           "value": "discharge datetime"
         }
       ],
       "encounter_inpatient_encounter_encounter_performed": [
         {
-          "date": 1296518400
+          "date": 1296551699
         },
         {
-          "date": 1296518400,
+          "date": 1296551699,
           "value": "admission datetime"
         },
         {
-          "date": 1296864000,
+          "date": 1296925200,
           "value": "discharge datetime"
         }
       ]

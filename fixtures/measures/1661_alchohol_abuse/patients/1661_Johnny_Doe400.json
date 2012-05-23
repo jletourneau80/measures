@@ -7,19 +7,19 @@
     "1661": {
       "encounter_inpatient_encounter_encounter_performed": [
         {
-          "date": 1296518400
+          "date": 1296551699
         },
         {
-          "date": 1296518400,
+          "date": 1296551699,
           "value": "admission datetime"
         },
         {
-          "date": 1296864000,
+          "date": 1296925200,
           "value": "discharge datetime"
         }
       ],
       "risk_category_screening_tool_for_alcohol_use_validated_result_risk_category_assessment": [
-        1296604800
+        1296637259
       ]
     }
   }

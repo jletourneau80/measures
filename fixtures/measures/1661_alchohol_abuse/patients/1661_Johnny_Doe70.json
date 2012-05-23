@@ -6,55 +6,55 @@
   "measures": {
     "1661": {
       "communication_discussion_of_behavior_negative_consequences_and_severity_communication_from_provider_to_patient": [
-        1296604800
+        1296662399
       ],
       "condition_acute_intoxication_diagnosis_active": [
-        1296604800
+        1296629999
       ],
       "encounter_inpatient_encounter_encounter_performed": [
         {
-          "date": 1296518400
+          "date": 1296551699
         },
         {
-          "date": 1296518400,
+          "date": 1296551699,
           "value": "admission datetime"
         },
         {
-          "date": 1296864000,
+          "date": 1296925200,
           "value": "discharge datetime"
         }
       ],
       "lab_test_blood_alcohol_test_laboratory_test_performed": [
         {
-          "date": 1296518400
+          "date": 1296554399
         },
         {
-          "date": 1296518400,
+          "date": 1296590400,
           "value": "0.09"
         }
       ],
       "procedure_assessment_for_alcohol_use_procedure_performed": [
         {
-          "date": 1296604800
+          "date": 1296637200
         },
         {
-          "date": 1296604800,
+          "date": 1296638099,
           "value": "Unhealthy Alcohol Use"
         }
       ],
       "communication_discussion_of_plan_of_care_communication_from_provider_to_patient": [
-        1296604800
+        1296662399
       ],
       "procedure_brief_alcohol_use_intervention_procedure_performed": [
         {
-          "date": 1296604800
+          "date": 1296662399
         },
         {
-          "date": 1296604800,
+          "date": 1296662399,
           "value": "start datetime"
         },
         {
-          "date": 1296604800,
+          "date": 1296664800,
           "value": "stop datetime"
         }
       ]

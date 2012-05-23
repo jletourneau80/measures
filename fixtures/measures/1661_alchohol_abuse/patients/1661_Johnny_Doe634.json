@@ -7,14 +7,14 @@
     "1661": {
       "encounter_inpatient_encounter_encounter_performed": [
         {
-          "date": 1359676800
+          "date": 1359710099
         },
         {
-          "date": 1359676800,
+          "date": 1359710099,
           "value": "admission datetime"
         },
         {
-          "date": 1360022400,
+          "date": 1360083600,
           "value": "discharge datetime"
         }
       ]
