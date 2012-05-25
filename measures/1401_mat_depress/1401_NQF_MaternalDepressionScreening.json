@@ -2,9 +2,9 @@
   "endorser": "NQF",
   "id": "1401",
   "properties": "NQF_Retooled_Measure_0575.xlsx.json",
-  "name": "Diabetes HbA1c Control < 8%",
-  "description": "The percentage of patients 18-75 years of age with diabetes (type 1 or type 2) who had HbA1c < 8.0%.",
-  "category": "Diabetes",
+  "name": "1401 Maternal Depression Screening",
+  "description": "The percentage of children who turned 6 months of age during the measurement year who had documentation of a maternal depression screening for the mother.",
+  "category": "Behavioral Health",
   "steward": "NCQA",
   "parameters": {
     "effective_date": {
@@ -31,99 +31,44 @@
     } 
   },
   "population": {
-    "category": "Patient Characteristic",
-    "title": "18 <= age <=75" 
+    "and":[
+    {
+      "category": "Patient Characteristic",
+      "title": "Children with a visit who turned 6 months of age in the measurement year" 
+    },
+    {"or":
+      [
+        {
+        "category": "Encounter",
+        "title": "Office Visit performed <= 6 months after birth" 
+        },
+        {
+          "category": "Encounter",
+          "title": "Face-to-Face Interaction performed <= 6 months after birth" 
+        },
+        {
+          "category": "Encounter",
+          "title": "Outpatient consultation performed <= 6 months after birth" 
+        }
+       ]
+      }
+    ]
   },
   "denominator": {
-    "or": [
-      {
-        "category": "Medication",
-        "title": "Medication Indicative of Diabetes, <=2 years before or simultaneously to measurement period end date" 
-      },
-      {
-        "and": [
-          {
-            "category": "Diagnosis Active",
-            "title": "Diabetes, <=2 years before or simultaneously to measurement period end date" 
-          },
-          {
-            "or": [
-              {
-                "category": "Encounter",
-                "title": "Acute Inpatient or ED, during the measurement period" 
-              },
-              {
-                "category": "Encounter",
-                "title": "Non-Acute Inpatient, Outpatient, or Ophthalmology, during the measurement period" 
-              } 
-            ] 
-          } 
-        ] 
-      } 
-    ] 
-  },
+        "category": "Patient Characteristic",
+        "title": "In Initial Patient Population" 
+      }
+  ,
   "numerator": {
-    "category": "Laboratory Test Result",
-    "title": "Most recent HbA1c < 8.0%, during the measurement period" 
-  },
-  "exclusions": {
-    "or": [
+    "or":[
       {
-        "and": [
-          {
-            "category": "Diagnosis",
-            "title": "Polycystic Ovaries, before or simultaneously to measurement period end date" 
-          },
-          {
-            "and": [
-              {
-                "category": "Diagnosis",
-                "title": "Diabetes Not Active, <=2 years before or simultaneously to measurement period end date" 
-              },
-              {
-                "or": [
-                  {
-                    "category": "Encounter",
-                    "title": "No Acute Inpatient or ED, <=2 years before or simultaneously to measurement period end date" 
-                  },
-                  {
-                    "category": "Encounter",
-                    "title": "No Non-Acute Inpatient, Outpatient, or Ophthalmology, <=2 years before or simultaneously to measurement period end date" 
-                  } 
-                ] 
-              } 
-            ] 
-          } 
-        ] 
+      "category": "Procedure",
+        "title": "PP Depression Screening performed <= 6 months after birth"
       },
       {
-        "and": [
-          {
-            "category": "Diagnosis",
-            "title": "Gestational Diabetes or Steroid Induced Diabetes, <=2 years before or simultaneously to measurement period end date" 
-          },
-          {
-            "category": "Medication",
-            "title": "Medications Indicative of Diabetes, <=2 years before or simultaneously to measurement period end date" 
-          },
-          {
-            "category": "Diagnosis",
-            "title": "Diabetes Active, <=2 years before or simultaneously to measurement period end date" 
-          },
-          {
-            "or": [
-              {
-                "category": "Encounter",
-                "title": "Acute Inpatient or ED, <=2 years before or simultaneously to measurement period end date" 
-              },
-              {
-                "category": "Encounter",
-                "title": "Non-Acute Inpatient, Outpatient, or Opthalmology, <=2 years before or simultaneously to measurement period end date" 
-              } 
-            ] 
-          } 
-        ] 
-      } 
-    ] 
+      "category": "Intervention",
+        "title": "PP Depression Treatment <= 6 months after birth"
+      }
+    ]
   }
 }

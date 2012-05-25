@@ -2,9 +2,9 @@
   "endorser": "NQF",
   "id": "1406",
   "properties": "NQF_Retooled_Measure_0575.xlsx.json",
-  "name": "Diabetes HbA1c Control < 8%",
-  "description": "The percentage of patients 18-75 years of age with diabetes (type 1 or type 2) who had HbA1c < 8.0%.",
-  "category": "Diabetes",
+  "name": "Risky Behavior Assessment or Counseling by Age 13 Years",
+  "description": "Percentage of children with documentation of a risk assessment or counseling for risky behaviors by the age of 13 years. Four rates are reported: Risk Assessment or Counseling for Alcohol Use, Risk Assessment or Counseling for Tobacco Use, Risk Assessment or Counseling for Other Substance Abuse, Risk Assessment or Counseling for Sexual Activity",
+  "category": "Behavioral Health",
   "steward": "NCQA",
   "parameters": {
     "effective_date": {
@@ -31,99 +31,84 @@
     } 
   },
   "population": {
-    "category": "Patient Characteristic",
-    "title": "18 <= age <=75" 
+    "and":[
+    {
+      "category": "Patient Characteristic",
+      "title": "age <= 12 before start of Measurement Period" 
+    },
+    {"or":
+      [
+        {
+        "category": "Encounter",
+        "title": "Office Visit performed <= 12 years old" 
+        },
+        {
+          "category": "Encounter",
+          "title": "Face-to-Face Interaction performed <= 12 years old" 
+        },
+        {
+          "category": "Encounter",
+          "title": "Outpatient consultation performed <= 12 years old" 
+        }
+       ]
+      }
+    ]
   },
   "denominator": {
-    "or": [
-      {
-        "category": "Medication",
-        "title": "Medication Indicative of Diabetes, <=2 years before or simultaneously to measurement period end date" 
-      },
-      {
-        "and": [
-          {
-            "category": "Diagnosis Active",
-            "title": "Diabetes, <=2 years before or simultaneously to measurement period end date" 
-          },
-          {
-            "or": [
-              {
-                "category": "Encounter",
-                "title": "Acute Inpatient or ED, during the measurement period" 
-              },
-              {
-                "category": "Encounter",
-                "title": "Non-Acute Inpatient, Outpatient, or Ophthalmology, during the measurement period" 
-              } 
-            ] 
-          } 
-        ] 
-      } 
-    ] 
-  },
+        "category": "Patient Characteristic",
+        "title": "In Initial Patient Population" 
+      }
+  ,
   "numerator": {
-    "category": "Laboratory Test Result",
-    "title": "Most recent HbA1c < 8.0%, during the measurement period" 
-  },
-  "exclusions": {
-    "or": [
-      {
-        "and": [
-          {
-            "category": "Diagnosis",
-            "title": "Polycystic Ovaries, before or simultaneously to measurement period end date" 
-          },
-          {
-            "and": [
-              {
-                "category": "Diagnosis",
-                "title": "Diabetes Not Active, <=2 years before or simultaneously to measurement period end date" 
-              },
-              {
-                "or": [
-                  {
-                    "category": "Encounter",
-                    "title": "No Acute Inpatient or ED, <=2 years before or simultaneously to measurement period end date" 
-                  },
-                  {
-                    "category": "Encounter",
-                    "title": "No Non-Acute Inpatient, Outpatient, or Ophthalmology, <=2 years before or simultaneously to measurement period end date" 
-                  } 
-                ] 
-              } 
-            ] 
-          } 
-        ] 
+    "or":[
+    {"and":
+       [
+        {
+        "category": "Intervention, ordered",
+          "title": "Occurrence A: Counseling for Substance Abuse when 11 years old <= age <=13 years old "
+        },
+        {
+        "category": "Intervention, performed",
+          "title": "Occurrence A: Counseling for Substance Abuse when 11 years old <= age <=13 years old "
+        }
+       ]
       },
-      {
-        "and": [
-          {
-            "category": "Diagnosis",
-            "title": "Gestational Diabetes or Steroid Induced Diabetes, <=2 years before or simultaneously to measurement period end date" 
-          },
-          {
-            "category": "Medication",
-            "title": "Medications Indicative of Diabetes, <=2 years before or simultaneously to measurement period end date" 
-          },
-          {
-            "category": "Diagnosis",
-            "title": "Diabetes Active, <=2 years before or simultaneously to measurement period end date" 
-          },
-          {
-            "or": [
-              {
-                "category": "Encounter",
-                "title": "Acute Inpatient or ED, <=2 years before or simultaneously to measurement period end date" 
-              },
-              {
-                "category": "Encounter",
-                "title": "Non-Acute Inpatient, Outpatient, or Opthalmology, <=2 years before or simultaneously to measurement period end date" 
-              } 
-            ] 
-          } 
-        ] 
-      } 
-    ] 
+      {"and":
+       [
+        {
+        "category": "Intervention, ordered",
+          "title": "Occurrence A: Counseling for Alcohol Abuse when 11 years old <= age <=13 years old "
+        },
+        {
+        "category": "Intervention, performed",
+          "title": "Occurrence A: Counseling for Alcohol Abuse when 11 years old <= age <=13 years old "
+        }
+       ]
+      },
+      {"and":
+       [
+        {
+        "category": "Intervention, ordered",
+          "title": "Occurrence A:Counseling for Sexual Activity when 11 years old <= age <=13 years old "
+        },
+        {
+        "category": "Intervention, performed",
+          "title": "Occurrence A:Counseling for Sexual Activity when 11 years old <= age <=13 years old "
+        }
+       ]
+      },
+      {"and":
+       [
+        {
+        "category": "Intervention, ordered",
+          "title": "Occurrence A: Counseling for Tobacco Abuse when 11 years old <= age <=13 years old "
+        },
+        {
+        "category": "Intervention, performed",
+          "title": "Occurrence A: Counseling for Tobacco Abuse when 11 years old <= age <=13 years old "
+        }
+       ]
+      }
+    ]
   }
 }

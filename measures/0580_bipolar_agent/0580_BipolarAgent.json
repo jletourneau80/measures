@@ -2,10 +2,10 @@
   "endorser": "NQF",
   "id": "0580",
   "properties": "NQF_Retooled_Measure_0575.xlsx.json",
-  "name": "Diabetes HbA1c Control < 8%",
-  "description": "The percentage of patients 18-75 years of age with diabetes (type 1 or type 2) who had HbA1c < 8.0%.",
-  "category": "Diabetes",
-  "steward": "NCQA",
+  "name": "0580 Bipolar Manic Agent",
+  "description": "This measure identifies the percentage of patients with newly diagnosed bipolar disorder who have received at least 1 prescription for a mood-stabilizing agent during the measurement year.",
+  "category": "Behavioral Health",
+  "steward": "NQF",
   "parameters": {
     "effective_date": {
       "description": "Effective end date for measure",
@@ -32,98 +32,51 @@
   },
   "population": {
     "category": "Patient Characteristic",
-    "title": "18 <= age <=75" 
+    "title": "17 <= age" 
   },
   "denominator": {
     "or": [
       {
-        "category": "Medication",
-        "title": "Medication Indicative of Diabetes, <=2 years before or simultaneously to measurement period end date" 
+        "category": "Diagnosis Active",
+        "title": "Count >= 3 of: Diagnosis, Active: BH Bipolar Disorder during (Encounter, Performed: BH Outpatient Encounter < 1 year(s) starts before start of Measurement Start Date)" 
       },
       {
-        "and": [
-          {
-            "category": "Diagnosis Active",
-            "title": "Diabetes, <=2 years before or simultaneously to measurement period end date" 
-          },
-          {
-            "or": [
-              {
-                "category": "Encounter",
-                "title": "Acute Inpatient or ED, during the measurement period" 
-              },
-              {
-                "category": "Encounter",
-                "title": "Non-Acute Inpatient, Outpatient, or Ophthalmology, during the measurement period" 
-              } 
-            ] 
-          } 
-        ] 
-      } 
-    ] 
+        "category": "Diagnosis Active",
+        "title": "Count >= 1 of: Diagnosis, Active: BH Bipolar Disorder (ordinality: 'Principal Diagnosis') during (Encounter, Performed: BH Inpatient Encounter < 1 year(s) starts before start of Measurement Start Date)" 
+      },
+      {
+        "category": "Diagnosis Active",
+        "title": "Count >= 1 of: Diagnosis, Active: BH Bipolar Disorder (ordinality: 'Principal Diagnosis') during (Encounter, Performed: BH Emergency Department Visit < 1 year(s) starts before start of Measurement Start Date)" 
+      }  
+    ],
+    "and" :[
+      {"or":[
+      {
+        "category": "Diagnosis Active",
+        "title": "NOT Count >= 1 of:Diagnosis, Active: BH Bipolar Disorder (ordinality: 'Principal Diagnosis') during (Encounter, Performed: BH Inpatient Encounter >= 1 year(s) starts before start of Measurement Start Date)" 
+      },
+      {
+        "category": "Diagnosis Active",
+        "title": "NOT Count >= 1 of: Diagnosis, Active: BH Bipolar Disorder during (Encounter, Performed: BH Outpatient Encounter >= 1 year(s) starts before start of Measurement Start Date)" 
+      },
+      {
+        "category": "Diagnosis Active",
+        "title": "NOT Count >= 1 of: Diagnosis, Active: BH Bipolar Disorder (ordinality: 'Principal Diagnosis') during (Encounter, Performed: BH Emergency Department Visit >= 1 year(s) starts before start of Measurement Start Date)" 
+      }
+     ]
+   }
+    ]
   },
   "numerator": {
-    "category": "Laboratory Test Result",
-    "title": "Most recent HbA1c < 8.0%, during the measurement period" 
-  },
-  "exclusions": {
-    "or": [
+    "or":[
       {
-        "and": [
-          {
-            "category": "Diagnosis",
-            "title": "Polycystic Ovaries, before or simultaneously to measurement period end date" 
-          },
-          {
-            "and": [
-              {
-                "category": "Diagnosis",
-                "title": "Diabetes Not Active, <=2 years before or simultaneously to measurement period end date" 
-              },
-              {
-                "or": [
-                  {
-                    "category": "Encounter",
-                    "title": "No Acute Inpatient or ED, <=2 years before or simultaneously to measurement period end date" 
-                  },
-                  {
-                    "category": "Encounter",
-                    "title": "No Non-Acute Inpatient, Outpatient, or Ophthalmology, <=2 years before or simultaneously to measurement period end date" 
-                  } 
-                ] 
-              } 
-            ] 
-          } 
-        ] 
+      "category": "Medication",
+        "title": "Count >= 1 of: Medication, Order: BH Mood Stabilizer Agent during Measurement Period"
       },
       {
-        "and": [
-          {
-            "category": "Diagnosis",
-            "title": "Gestational Diabetes or Steroid Induced Diabetes, <=2 years before or simultaneously to measurement period end date" 
-          },
-          {
-            "category": "Medication",
-            "title": "Medications Indicative of Diabetes, <=2 years before or simultaneously to measurement period end date" 
-          },
-          {
-            "category": "Diagnosis",
-            "title": "Diabetes Active, <=2 years before or simultaneously to measurement period end date" 
-          },
-          {
-            "or": [
-              {
-                "category": "Encounter",
-                "title": "Acute Inpatient or ED, <=2 years before or simultaneously to measurement period end date" 
-              },
-              {
-                "category": "Encounter",
-                "title": "Non-Acute Inpatient, Outpatient, or Opthalmology, <=2 years before or simultaneously to measurement period end date" 
-              } 
-            ] 
-          } 
-        ] 
-      } 
-    ] 
+      "category": "Medication",
+        "title": "Count >= 1 of: Medication, Active: BH Mood Stabilizer Agent during (Encounter, Performed: BH Outpatient Encounter during Measurement Period)"
+      }
+    ]
   }
 }

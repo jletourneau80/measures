@@ -52,9 +52,10 @@ function() {
 
   var numerator = function() {
 
-var length_of_inpatient_stay = lengthOfStay(measure.encounter_inpatient_encounter_encounter_performed);
-   var patient_refused_screening = actionFollowingSomething(measure.communication_patient_refusal_of_brief_alcohol_use_intervention_communication_from_patient_to_provider,filterForSomething(measure.encounter_inpatient_encounter_encounter_performed) , lengthOfStay(measure.encounter_inpatient_encounter_encounter_performed)) || 
-                                 actionFollowingSomething(filterForSomething(measure.procedure_assessment_for_alcohol_use_procedure_performed, "value","Patient Refusal for Brief Alcohol Use Intervention"),filterForSomething(measure.encounter_inpatient_encounter_encounter_performed) , length_of_inpatient_stay);
+   var length_of_inpatient_stay = lengthOfStay(measure.encounter_inpatient_encounter_encounter_performed);
+   
+   var patient_refused_screening = actionFollowingSomething(filterForSomething(measure.encounter_inpatient_encounter_encounter_performed,"value","admission datetime") ,measure.communication_patient_refusal_of_brief_alcohol_use_intervention_communication_from_patient_to_provider, lengthOfStay(measure.encounter_inpatient_encounter_encounter_performed)) || 
+                                 actionFollowingSomething(filterForSomething(measure.encounter_inpatient_encounter_encounter_performed,"value","admission datetime") , filterForSomething(measure.procedure_assessment_for_alcohol_use_procedure_performed, "value","Patient Refusal for Brief Alcohol Use Intervention"), length_of_inpatient_stay);
    
    var assessment_for_alchohol = actionFollowingSomething(filterForSomething(measure.procedure_assessment_for_alcohol_use_procedure_performed),filterForSomething(measure.encounter_inpatient_encounter_encounter_performed) , lengthOfStay(measure.encounter_inpatient_encounter_encounter_performed));
    var risk_category_assessment_for_alchohol_after_assessment = actionFollowingSomething(filterForSomething(measure.risk_category_screening_tool_for_alcohol_use_validated_result_risk_category_assessment),filterForSomething(measure.procedure_assessment_for_alcohol_use_procedure_performed) , length_of_inpatient_stay);
