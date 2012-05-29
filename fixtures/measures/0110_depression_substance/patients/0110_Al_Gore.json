@@ -1,0 +1,22 @@
+{
+  "first": "Al",
+  "last": "Gore",
+  "gender": "M",
+  "birthdate": 653803200,
+  "measures": {
+    "0110": {
+      "condition_bh_conditions_involving_bipolar_disorder_diagnosis_active": [
+        1320105600
+      ],
+      "encounter_bh_outpatient_encounter_encounter_performed": [
+        1320105600
+      ],
+      "medication_bh_anti_depressant_medication_medication_ordered": [
+        1320497999
+      ],
+      "procedure_bh_assessment_for_alcohol_or_other_substance_use_procedure_performed": [
+        1320426000
+      ]
+    }
+  }
+}

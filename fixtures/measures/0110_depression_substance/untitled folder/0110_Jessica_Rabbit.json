@@ -1,0 +1,16 @@
+{
+  "first": "Jessica",
+  "last": "Rabbit",
+  "gender": "F",
+  "birthdate": 653788800,
+  "measures": {
+    "0110": {
+      "condition_bh_conditions_involving_bipolar_disorder_diagnosis_active": [
+        1320120000
+      ],
+      "encounter_bh_outpatient_encounter_encounter_performed": [
+        1320105600
+      ]
+    }
+  }
+}
