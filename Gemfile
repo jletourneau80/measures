@@ -1,9 +1,6 @@
 source :gemcutter
 
-<<<<<<< HEAD
 
-=======
->>>>>>> saul/BHeMeasures
 #gem 'quality-measure-engine', '1.0.4'
 #gem 'quality-measure-engine', :path=>'../quality-measure-engine'
 gem 'quality-measure-engine', :path => '../quality-measure-engine'

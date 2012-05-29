@@ -1,11 +1,11 @@
 {
   "endorser": "NQF",
-  "id": "1234",
-  "properties": "NQF_Retooled_Measure_1234.xlsx.json",
-  "name": "Pneumonia Vaccination Status for Older Adults",
-  "description": "Patients more than 65 years old who have ever received a pneumococcal vaccine.",
-  "category": "BH eMeasures",
-  "steward": "NCQA",
+  "id": "0111",
+  "properties": "NQF_Retooled_Measure_0043.xlsx.json",
+  "name": "Bipolar Disorder: Appraisal for risk of suicide",
+  "description": "Patients with bipolar disorder, or unipolar depression, who receive an initial assessment of risk of suicide.",
+  "category": "Behavioral Health",
+  "steward": "MITRE",
   "parameters": {
     "effective_date": {
       "description": "Effective end date for measure",
@@ -33,21 +33,169 @@
   },
   "population": {
     "category": "Patient Characteristic",
-    "title": "Age >= 64" 
+    "title": "Age 18 year(s) starts before start of Measurement Start Date" 
   },
   "denominator": {
-    "category": "Encounter",
-    "title": "Outpatient, <=1 year before or simultaneously to measurement period end date" 
-  },
-  "numerator": {
-    "or": [
+    "and": [
       {
-        "category": "Medication Administered",
-        "title": "Pneumococcal vaccination, before or simultaneously to measurement period end date" 
+        "category": "Encounter, performed",
+        "title": "Occurrence A of Encounter, Performed: BH Outpatient Encounter starts after start of Measurement Start Date"
+      },
+      {"or":[
+        {"category": "Diagnosis, active",
+        "title": "FIRST: BH Conditions Involving Bipolar Depression during encounter" 
+        },
+        {"category": "Diagnosis, active",
+        "title": "BH Conditions Involving Unipolar Depression during encounter" 
+        }
+       ]
       },
       {
-        "category": "Procedure performed",
-        "title": "Pneumococcal vaccination, before or simultaneously to measurement period end date" 
+        "category": "Encounter, performed",
+        "title": "Occurrence A of Encounter, Performed: BH Outpatient Encounter >= 42 day(s) starts before start of Measurement End Date"
+      },
+      {"or":[
+        {"category": "Diagnosis, active",
+        "title": "FIRST: BH Conditions Involving Bipolar Depression during encounter" 
+        },
+        {"category": "Diagnosis, active",
+        "title": "BH Conditions Involving Unipolar Depression during encounter" 
+        }
+       ]
+      },
+      {"or":[
+      {
+        "category": "Medication, ordered",
+        "title": "FIRST: Occurrence A of Medication, Order: BH Antidepressant Medications < 42 day(s) starts after start of Occurrence A of Encounter, Performed: BH Outpatient Encounter"
+      },{
+        "category": "Procedure, ordered",
+        "title": "FIRST: Occurrence A of Procedure, Order: BH Counseling for Depression < 42 day(s) starts after start of Occurrence A of Encounter, Performed: BH Outpatient Encounter"
+      },
+      
+      {
+        "category": "Procedure, performed",
+        "title": "FIRST: Occurrence A of Procedure, Performed: BH Counseling for Depression < 42 day(s) starts after start of Occurrence A of Encounter, Performed: BH Outpatient Encounter"
+      },
+      {
+        "category": "Procedure, ordered",
+        "title": "FIRST: Occurrence A of Procedure, Order: BH Electroconvulsive Therapy < 42 day(s) starts after start of Occurrence A of Encounter, Performed: BH Outpatient Encounter"
+      },
+      {
+        "category": "Procedure, performed",
+        "title": "FIRST: Occurrence A of Procedure, Performed: BH Electroconvulsive Therapy < 42 day(s) starts after start of Occurrence A of Encounter, Performed: BH Outpatient Encounter"
+      },
+      {
+        "category": "Medication, ordered",
+        "title": "FIRST: Occurrence A of Medication, Order: BH Mood Stabilizer Agent < 42 day(s) starts after start of Occurrence A of Encounter, Performed: BH Outpatient Encounter"
+      },
+      {
+        "category": "Encounter, ordered",
+        "title": "FIRST: Occurrence A of Encounter, Order: BH Psychotherapy < 42 day(s) starts after start of Occurrence A of Encounter, Performed: BH Outpatient Encounter"
+      },
+      {
+        "category": "Encounter, ordered",
+        "title": "FIRST: Occurrence A of Encounter, Order: BH Psychotherapy < 42 day(s) starts after start of Occurrence A of Encounter, Performed: BH Outpatient Encounter"
+      },
+      {
+        "category": "Encounter, recommended",
+        "title": "FIRST: Encounter, Recommended: BH Psychotherapy < 42 day(s) starts after start of Occurrence A of Encounter, Performed: BH Outpatient Encounter"
+      }
+      ]
+      
+      },
+      {
+        "category": "Diagnosis, active",
+        "title": "NOT Diagnosis, Active: BH Conditions Involving Unipolar Depression during Occurrence B of Encounter, Performed: BH Outpatient Encounter"
+      },
+      {
+        "category": "Diagnosis, active",
+        "title": "NOT Diagnosis, Active: BH Conditions Involving Bipolar Depression during Occurrence B of Encounter, Performed: BH Outpatient Encounter"
+      },
+      {
+        "category": "Medication, ordered",
+        "title": "NOT Medication, Order: BH Mood Stabilizer Agent"
+      },
+      {
+        "category": "Medication, ordered",
+        "title": "NOT Medication, Order: BH Antidepressant Medications"
+      },
+      {
+        "category": "Procedure, ordered",
+        "title": "NOT Procedure, Order: BH Counseling for Depression"
+      },
+      {
+        "category": "Procedure, ordered",
+        "title": "Procedure, Order: BH Electroconvulsive Therapy"
+      },
+      {
+        "category": "Procedure, performed",
+        "title": "NOT Procedure, Performed: BH Electroconvulsive Therapy"
+      },
+      {
+        "category": "Encounter, ordered",
+        "title": "NOT Encounter, Order: BH Psychotherapy"
+      },
+      {
+        "category": "Medication, active",
+        "title": "Medication, Active: BH Antidepressant Medications during Occurrence B of Encounter, Performed: BH Outpatient Encounter"
+      },
+      {
+        "category": "Procedure, performed",
+        "title": "Procedure, Performed: BH Counseling for Depression"
+      },
+      {
+        "category": "Encounter, performed",
+        "title": "< 180 day(s) starts before start of Occurrence A of Encounter, Performed: BH Outpatient Encounter"
+      }
+      
+    ]
+    
+  },
+  "numerator": {
+    "and": [
+      {
+        "category": "Procedure Performed",
+        "title": "Occurrence A of Procedure, Performed: BH Assessment for Suicidality <= 0 day(s) starts after start of FIRST"
+      },
+      {"or":[
+      {
+        "category": "Medication, ordered",
+        "title": "FIRST: Occurrence A of Medication, Order: BH Antidepressant Medications < 42 day(s) starts after start of Occurrence A of Encounter, Performed: BH Outpatient Encounter"
+      },
+      {
+        "category": "Procedure, ordered",
+        "title": "FIRST: Occurrence A of Procedure, Order: BH Counseling for Depression < 42 day(s) starts after start of Occurrence A of Encounter, Performed: BH Outpatient Encounter"
+      },
+      {
+        "category": "Procedure, performed",
+        "title": "FIRST: Occurrence A of Procedure, Performed: BH Counseling for Depression < 42 day(s) starts after start of Occurrence A of Encounter, Performed: BH Outpatient Encounter"
+      },
+      {
+        "category": "Procedure, ordered",
+        "title": "FIRST: Occurrence A of Procedure, Order: BH Electroconvulsive Therapy < 42 day(s) starts after start of Occurrence A of Encounter, Performed: BH Outpatient Encounter"
+      },
+      {
+        "category": "Procedure, performed",
+        "title": "FIRST: Occurrence A of Procedure, Performed: BH Electroconvulsive Therapy < 42 day(s) starts after start of Occurrence A of Encounter, Performed: BH Outpatient Encounter"
+      },
+      {
+        "category": "Medication, ordered",
+        "title": "FIRST: Occurrence A of Medication, Order: BH Mood Stabilizer Agent  < 42 day(s) starts after start of Occurrence A of Encounter, Performed: BH Outpatient Encounter"
+      },
+      {
+        "category": "Encounter, ordered",
+        "title": "FIRST: Occurrence A of Encounter, Order: BH Psychotherapy < 42 day(s) starts after start of Occurrence A of Encounter, Performed: BH Outpatient Encounter"
+      },
+      {
+        "category": "Encounter, recomended",
+        "title": "FIRST: Encounter, Recommended: BH Psychotherapy  < 42 day(s) starts after start of Occurrence A of Encounter, Performed: BH Outpatient Encounter"
+      }
+      
+      ]
+
+      },{
+        "category": "Procedure, performed",
+        "title": "Procedure, Performed: BH Assessment for Substance Use starts after start of Occurrence A of Encounter, Performed: BH Outpatient Encounter"
       }
     ]
   },
